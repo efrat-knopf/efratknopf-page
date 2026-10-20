@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>אפרת קנופף | ייעוץ בטיחות ונגישות לפרויקטים גדולים</title>
+  <meta name="description" content="ייעוץ בטיחות ונגישות לפרויקטים גדולים: תכנון, ליווי, פיקוח וייעוץ מקצועי.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="brand" aria-label="אפרת קנופף - לראש הדף">
+      <img src="logo.png" alt="לוגו אפרת קנופף - בטיחות, נגישות">
+    </a>
+    <button class="menu-toggle" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav" class="main-nav" aria-label="ניווט ראשי">
+      <ul>
+        <li><a href="#about">אודות</a></li>
+        <li><a href="#services">שירותים</a></li>
+        <li><a href="#projects">פרויקטים</a></li>
+        <li class="nav-phone"><a href="tel:028020108" dir="ltr">02-8020-108</a></li>
+        <li><a href="#contact" class="nav-cta">דברו איתנו</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>בטיחות ונגישות <br>בפרויקטים שאין בהם מקום לטעויות</h1>
+      <p class="hero-sub">ייעוץ, תכנון ופיקוח מקצועי לפרויקטי תשתית, בנייה ומבני ציבור בהיקפים גדולים.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-gold">קבעו שיחת ייעוץ</a>
+        <a href="#projects" class="btn btn-ghost">הפרויקטים שלנו</a>
+      </div>
+    </div>
+
+    <!-- פס לקוחות נע. להחלפה: במקום <span class="client ph">...</span> שימו
+         <span class="client"><img src="clients/שם.png" alt="שם הלקוח"></span>
+         (הלוגו יוצג אוטומטית בלבן). יש לעדכן גם את הסט השני (aria-hidden) -->
+    <div class="container clients">
+      <p class="clients-title">לקוחות שסומכים עלינו</p>
+      <div class="marquee">
+        <div class="marquee-track">
+          <span class="client ph">לוגו לקוח 1</span><span class="client ph">לוגו לקוח 2</span><span class="client ph">לוגו לקוח 3</span>
+          <span class="client ph">לוגו לקוח 4</span><span class="client ph">לוגו לקוח 5</span><span class="client ph">לוגו לקוח 6</span>
+          <!-- סט כפול ללולאה חלקה -->
+          <span class="client ph" aria-hidden="true">לוגו לקוח 1</span><span class="client ph" aria-hidden="true">לוגו לקוח 2</span><span class="client ph" aria-hidden="true">לוגו לקוח 3</span>
+          <span class="client ph" aria-hidden="true">לוגו לקוח 4</span><span class="client ph" aria-hidden="true">לוגו לקוח 5</span><span class="client ph" aria-hidden="true">לוגו לקוח 6</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- אלמנט ויזואלי: קווי שרטוט הנדסיים -->
+    <svg class="hero-art" viewBox="0 0 400 400" aria-hidden="true">
+      <circle cx="200" cy="200" r="190"/>
+      <circle class="pulse" cx="200" cy="200" r="190"/>
+      <g class="spin-rev"><circle class="dash" cx="200" cy="200" r="140"/><circle class="dot" cx="200" cy="60" r="4"/></g>
+      <g class="spin"><circle cx="200" cy="200" r="90"/><path d="M200 10V390M10 200H390M66 66L334 334M334 66L66 334"/></g>
+    </svg>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div>
+        <h2>ניסיון שמבטיח שקט</h2>
+        <span class="rule"></span>
+      </div>
+      <div class="about-text">
+        <p>אנו מלווים יזמים, רשויות וחברות הנדסה בפרויקטים מורכבים, משלב התכנון ועד מסירת המבנה. הצוות שלנו משלב ידע רגולטורי מעמיק עם הבנה הנדסית של תהליכי עבודה בשטח.</p>
+        <p>כל פרויקט מקבל ליווי אישי, שקיפות מלאה ועמידה בלוחות זמנים, כדי שהחוק, האנשים והתקציב ישמרו.</p>
+        <ul class="stats">
+          <li><strong>20+</strong><span>שנות ניסיון</span></li>
+          <li><strong>300+</strong><span>פרויקטים</span></li>
+          <li><strong>100%</strong><span>עמידה בתקנות</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Services ===== -->
+  <section class="section section-navy" id="services">
+    <div class="container">
+      <h2>שירותים</h2>
+      <span class="rule"></span>
+      <div class="grid services-grid">
+        <article class="card">
+          <svg viewBox="0 0 48 48" class="icon" aria-hidden="true"><path d="M24 4l16 6v12c0 11-7 18-16 22C15 40 8 33 8 22V10z"/><path d="M17 24l5 5 9-10"/></svg>
+          <h3>ייעוץ בטיחות</h3>
+          <p>תכנון ובקרת בטיחות באתרי בנייה ובמבנים, כולל תוכניות בטיחות ועמידה בדרישות החוק.</p>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 48 48" class="icon" aria-hidden="true"><circle cx="24" cy="9" r="4"/><path d="M12 18h24M24 18v12M24 30l-8 14M24 30l8 14"/></svg>
+          <h3>נגישות ותכנון אוניברסלי</h3>
+          <p>התאמת מבנים, מרחב ציבורי ושירותים לכלל האוכלוסייה, בהתאם לתקן ולרגולציה.</p>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 48 48" class="icon" aria-hidden="true"><rect x="8" y="6" width="32" height="36" rx="3"/><path d="M15 16h18M15 24h18M15 32h10"/></svg>
+          <h3>ניהול ופיקוח</h3>
+          <p>פיקוח שוטף בשטח, בדיקות ודוחות, וליווי הפרויקט עד קבלת אישורים וטופס 4.</p>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 48 48" class="icon" aria-hidden="true"><path d="M6 40h36M10 40V20l14-12 14 12v20"/><path d="M20 40V28h8v12"/></svg>
+          <h3>ייעוץ מקצועי לפרויקטים</h3>
+          <p>חוות דעת, סקרים וביקורות למתכננים, יזמים ורשויות בפרויקטים בהיקף גדול.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2>פרויקטים נבחרים</h2>
+      <span class="rule"></span>
+      <p class="lead">לחצו על פרויקט כדי לקרוא עליו. (תוכן ותמונות לדוגמה, יוחלפו בהמשך.)</p>
+      <div class="grid projects-grid">
+        <button class="project" data-title="מתחם תחבורה ציבורית" data-desc="ליווי בטיחות ונגישות מלא של מתחם תחבורה בהיקף ענק, כולל מסלולי הליכה נגישים ובקרת אתר.">
+          <span class="project-tag">תשתיות</span><h3>מתחם תחבורה ציבורית</h3>
+        </button>
+        <button class="project" data-title="מרכז רפואי" data-desc="יעוץ נגישות ובטיחות בתכנון ובביצוע אגף חדש, בתיאום עם צוותי התכנון והרשויות.">
+          <span class="project-tag">בריאות</span><h3>מרכז רפואי</h3>
+        </button>
+        <button class="project" data-title="פרויקט מגורים ומסחר" data-desc="פיקוח בטיחות באתר רב-שלבי, וליווי עד קבלת טופס 4 ותעודת גמר.">
+          <span class="project-tag">נדל"ן</span><h3>פרויקט מגורים ומסחר</h3>
+        </button>
+        <button class="project" data-title="קמפוס אקדמי" data-desc="התאמת קמפוס קיים לתקני נגישות, כולל סקר מקיף ותוכנית עבודה מדורגת.">
+          <span class="project-tag">מוסדות</span><h3>קמפוס אקדמי</h3>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="section section-light" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2>נשמח לשמוע על הפרויקט</h2>
+        <span class="rule"></span>
+        <ul>
+          <li><strong>טלפון</strong><a href="tel:028020108">02-8020-108</a></li>
+          <li><strong>דוא"ל</strong><a href="mailto:office@eknopf.co.il">office@eknopf.co.il</a></li>
+          <li><strong>שעות מענה</strong>8:30-15:30</li>
+          <li><strong>כתובת</strong>[כתובת המשרד, להשלמה]</li>
+        </ul>
+      </div>
+
+      <form id="contact-form" class="form" novalidate>
+        <!-- שדה מלכודת נגד ספאם: לא למחוק -->
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field">
+          <label for="name">שם מלא</label>
+          <input type="text" id="name" name="name" autocomplete="name">
+          <small class="error" aria-live="polite"></small>
+        </div>
+        <div class="field">
+          <label for="phone">טלפון</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" dir="ltr">
+          <small class="error" aria-live="polite"></small>
+        </div>
+        <div class="field">
+          <label for="email">דוא"ל</label>
+          <input type="email" id="email" name="email" autocomplete="email" dir="ltr">
+          <small class="error" aria-live="polite"></small>
+        </div>
+        <div class="field">
+          <label for="message">הודעה</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+          <small class="error" aria-live="polite"></small>
+        </div>
+        <button type="submit" class="btn btn-gold">שליחת פנייה</button>
+        <p class="form-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ===== Accessibility widget ===== -->
+<div class="a11y">
+  <button class="a11y-toggle" aria-expanded="false" aria-controls="a11y-panel" aria-label="תפריט נגישות">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14"/><circle cx="16" cy="8.5" r="2" class="f"/><path d="M8 12.5l8 1.8 8-1.8M16 14.3V20M16 20l-3.5 6M16 20l3.5 6"/></svg>
+  </button>
+  <div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="כלי נגישות" hidden>
+    <p class="a11y-title">כלי נגישות</p>
+    <button data-a11y="size-up">הגדלת טקסט</button>
+    <button data-a11y="size-down">הקטנת טקסט</button>
+    <button data-a11y="contrast" aria-pressed="false">ניגודיות גבוהה</button>
+    <button data-a11y="gray" aria-pressed="false">גווני אפור</button>
+    <button data-a11y="links" aria-pressed="false">הדגשת קישורים</button>
+    <button data-a11y="font" aria-pressed="false">גופן קריא</button>
+    <button data-a11y="motion" aria-pressed="false">עצירת אנימציות</button>
+    <button data-a11y="reset" class="a11y-reset">איפוס הגדרות</button>
+  </div>
+</div>
+
+<!-- ===== Project modal ===== -->
+<div class="modal" id="project-modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" aria-label="סגירה">&times;</button>
+    <div class="modal-media" aria-hidden="true"></div>
+    <h3 id="modal-title"></h3>
+    <p id="modal-desc"></p>
+  </div>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span id="year"></span> אפרת קנופף. כל הזכויות שמורות.</p>
+    <ul>
+      <li><a href="#about">אודות</a></li>
+      <li><a href="#services">שירותים</a></li>
+      <li><a href="#projects">פרויקטים</a></li>
+      <li><a href="#contact">יצירת קשר</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
