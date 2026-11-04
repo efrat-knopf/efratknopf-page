@@ -7,17 +7,14 @@
   <meta name="description" content="ייעוץ בטיחות ונגישות לפרויקטים גדולים: תכנון, ליווי, פיקוח וייעוץ מקצועי.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
 
 <!-- ===== Header ===== -->
 <header class="site-header" id="top">
   <div class="container header-inner">
-    <a href="#top" class="brand" aria-label="אפרת קנופף - לראש הדף">
-      <img src="logo.png" alt="לוגו אפרת קנופף - בטיחות, נגישות">
-    </a>
     <button class="menu-toggle" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="main-nav">
       <span></span><span></span><span></span>
     </button>
@@ -37,37 +34,89 @@
   <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="container hero-inner">
-      <h1>בטיחות ונגישות <br>בפרויקטים שאין בהם מקום לטעויות</h1>
-      <p class="hero-sub">ייעוץ, תכנון ופיקוח מקצועי לפרויקטי תשתית, בנייה ומבני ציבור בהיקפים גדולים.</p>
+      <h1>אפרת קנופף<br>בטיחות ונגישות</h1>
+      <!-- תיבה מתגלגלת: כל צד מציג משפט אחר, בלי לחיצה. להחלפת משפטים: ערכו את ארבעת ה-li -->
+      <div class="facts"><ul class="prism">
+        <li>אלפי דירות בפרויקטים</li>
+        <li>ליווי בתי כנסת ומוסדות לימוד</li>
+        <li>מאות סקרי נגישות</li>
+        <li>ליווי מהתכנון ועד המסירה</li>
+      </ul></div>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-gold">קבעו שיחת ייעוץ</a>
         <a href="#projects" class="btn btn-ghost">הפרויקטים שלנו</a>
       </div>
     </div>
 
-    <!-- פס לקוחות נע. להחלפה: במקום <span class="client ph">...</span> שימו
-         <span class="client"><img src="clients/שם.png" alt="שם הלקוח"></span>
-         (הלוגו יוצג אוטומטית בלבן). יש לעדכן גם את הסט השני (aria-hidden) -->
     <div class="container clients">
       <p class="clients-title">לקוחות שסומכים עלינו</p>
       <div class="marquee">
         <div class="marquee-track">
-          <span class="client ph">לוגו לקוח 1</span><span class="client ph">לוגו לקוח 2</span><span class="client ph">לוגו לקוח 3</span>
-          <span class="client ph">לוגו לקוח 4</span><span class="client ph">לוגו לקוח 5</span><span class="client ph">לוגו לקוח 6</span>
-          <!-- סט כפול ללולאה חלקה -->
-          <span class="client ph" aria-hidden="true">לוגו לקוח 1</span><span class="client ph" aria-hidden="true">לוגו לקוח 2</span><span class="client ph" aria-hidden="true">לוגו לקוח 3</span>
-          <span class="client ph" aria-hidden="true">לוגו לקוח 4</span><span class="client ph" aria-hidden="true">לוגו לקוח 5</span><span class="client ph" aria-hidden="true">לוגו לקוח 6</span>
+          <span class="client"><img src="לוגואים/גינדי.png" alt="גינדי"></span>
+          <span class="client"><img src="לוגואים/ICR.png" alt="ICR"></span>
+          <span class="client"><img src="לוגואים/הכשרת היישוב.png" alt="הכשרת היישוב"></span>
+          <span class="client"><img src="לוגואים/אפירדר.png" alt="אפירדר"></span>
+          <span class="client"><img src="לוגואים/בוני התיכון.png" alt="בוני התיכון"></span>
+          <span class="client"><img src="לוגואים/בית ירושלמי.png" alt="בית ירושלמי"></span>
+          <span class="client"><img src="לוגואים/גיא ודורון לוי.png" alt="גיא ודורון לוי"></span>
+          <span class="client"><img src="לוגואים/הדס קפיטל.png" alt="הדס קפיטל"></span>
+          <span class="client"><img src="לוגואים/חברת בסט.png" alt="חברת בסט"></span>
+          <span class="client"><img src="לוגואים/חוצות ירושלים.png" alt="חוצות ירושלים"></span>
+          <span class="client"><img src="לוגואים/יהודה רחמים.png" alt="יהודה רחמים"></span>
+          <span class="client"><img src="לוגואים/קרדן.png" alt="קרדן"></span>
+          <span class="client" aria-hidden="true"><img src="לוגואים/גינדי.png" alt=""></span>
+          <span class="client" aria-hidden="true"><img src="לוגואים/ICR.png" alt=""></span>
+          <span class="client" aria-hidden="true"><img src="לוגואים/הכשרת היישוב.png" alt=""></span>
+          <span class="client" aria-hidden="true"><img src="לוגואים/אפירדר.png" alt=""></span>
+          <span class="client" aria-hidden="true"><img src="לוגואים/בוני התיכון.png" alt=""></span>
+          <span class="client" aria-hidden="true"><img src="לוגואים/בית ירושלמי.png" alt=""></span>
+          <span class="client" aria-hidden="true"><img src="לוגואים/גיא ודורון לוי.png" alt=""></span>
+          <span class="client" aria-hidden="true"><img src="לוגואים/הדס קפיטל.png" alt=""></span>
+          <span class="client" aria-hidden="true"><img src="לוגואים/חברת בסט.png" alt=""></span>
+          <span class="client" aria-hidden="true"><img src="לוגואים/חוצות ירושלים.png" alt=""></span>
+          <span class="client" aria-hidden="true"><img src="לוגואים/יהודה רחמים.png" alt=""></span>
+          <span class="client" aria-hidden="true"><img src="לוגואים/קרדן.png" alt=""></span>
         </div>
       </div>
     </div>
 
     <!-- אלמנט ויזואלי: קווי שרטוט הנדסיים -->
-    <svg class="hero-art" viewBox="0 0 400 400" aria-hidden="true">
-      <circle cx="200" cy="200" r="190"/>
-      <circle class="pulse" cx="200" cy="200" r="190"/>
-      <g class="spin-rev"><circle class="dash" cx="200" cy="200" r="140"/><circle class="dot" cx="200" cy="60" r="4"/></g>
-      <g class="spin"><circle cx="200" cy="200" r="90"/><path d="M200 10V390M10 200H390M66 66L334 334M334 66L66 334"/></g>
-    </svg>
+    <!-- הלוגו בפתיחה: טבעות נרשמות, המדליון מופיע וברק עובר עליו. הכול מתנגן לבד בטעינה -->
+    <div class="hero-logo" aria-hidden="true">
+      <div class="float">
+        <span class="glow"></span>
+        <svg viewBox="0 0 500 500">
+        <!-- גלובוס: קווי רוחב קבועים וקווי אורך שמסתובבים סביב הלוגו -->
+        <circle class="draw" pathLength="1" cx="250" cy="250" r="240"/>
+        <g class="globe">
+          <g class="lat">
+          <ellipse class="draw d2" pathLength="1" cx="250" cy="100" rx="187" ry="13"/>
+          <ellipse class="draw d2" pathLength="1" cx="250" cy="170" rx="226" ry="16"/>
+          <ellipse class="draw d2" pathLength="1" cx="250" cy="250" rx="240" ry="17"/>
+          <ellipse class="draw d2" pathLength="1" cx="250" cy="330" rx="226" ry="16"/>
+          <ellipse class="draw d2" pathLength="1" cx="250" cy="400" rx="187" ry="13"/>
+          </g>
+          <g>
+          <circle class="mer" style="--i:0;--s:1" cx="250" cy="250" r="240"/>
+          <circle class="mer" style="--i:1;--s:0.87" cx="250" cy="250" r="240"/>
+          <circle class="mer" style="--i:2;--s:0.5" cx="250" cy="250" r="240"/>
+          <circle class="mer" style="--i:3;--s:0" cx="250" cy="250" r="240"/>
+          <circle class="mer" style="--i:4;--s:-0.5" cx="250" cy="250" r="240"/>
+          <circle class="mer" style="--i:5;--s:-0.87" cx="250" cy="250" r="240"/>
+          </g>
+        </g>
+        <!-- ציר אנכי: הגלובוס מסתובב סביבו -->
+        <line class="draw d3 axis" pathLength="1" x1="250" y1="-16" x2="250" y2="516"/>
+        <circle class="dot" cx="250" cy="-16" r="3.5"/><circle class="dot" cx="250" cy="516" r="3.5"/>
+        <g class="orbit"><circle class="dot" cx="250" cy="10" r="4.5"/></g>
+      </svg>
+        <!-- מטבע דו-צדדי: אותו לוגו בשני הצדדים. מסתובב במעבר עכבר על הלוגו או על הכותרת -->
+        <div class="emblem"><div class="coin">
+          <div class="face"><img src="logo.png" alt=""></div>
+          <div class="face back"><img src="logo.png" alt=""></div>
+        </div></div>
+      </div>
+    </div>
   </section>
 
   <!-- ===== About ===== -->
@@ -81,9 +130,10 @@
         <p>אנו מלווים יזמים, רשויות וחברות הנדסה בפרויקטים מורכבים, משלב התכנון ועד מסירת המבנה. הצוות שלנו משלב ידע רגולטורי מעמיק עם הבנה הנדסית של תהליכי עבודה בשטח.</p>
         <p>כל פרויקט מקבל ליווי אישי, שקיפות מלאה ועמידה בלוחות זמנים, כדי שהחוק, האנשים והתקציב ישמרו.</p>
         <ul class="stats">
-          <li><strong>20+</strong><span>שנות ניסיון</span></li>
-          <li><strong>300+</strong><span>פרויקטים</span></li>
-          <li><strong>100%</strong><span>עמידה בתקנות</span></li>
+          <!-- המספרים עולים בגלילה (script.js). אפשר לשנות את data-count ואת הסיומת -->
+          <li><strong dir="ltr" data-count="100" data-suffix="+">100+</strong><span>ערים ויישובים ברחבי הארץ</span></li>
+          <li><strong dir="ltr" data-count="1000" data-suffix="+">1000+</strong><span>פרויקטים</span></li>
+          <li><strong dir="ltr" data-count="100" data-suffix="%">100%</strong><span>עמידה בתקנות</span></li>
         </ul>
       </div>
     </div>
@@ -124,7 +174,7 @@
     <div class="container">
       <h2>פרויקטים נבחרים</h2>
       <span class="rule"></span>
-      <p class="lead">לחצו על פרויקט כדי לקרוא עליו. (תוכן ותמונות לדוגמה, יוחלפו בהמשך.)</p>
+      <p class="lead">לחצו על פרויקט כדי לקרוא עליו.</p>
       <div class="grid projects-grid">
         <button class="project" data-title="מתחם תחבורה ציבורית" data-desc="ליווי בטיחות ונגישות מלא של מתחם תחבורה בהיקף ענק, כולל מסלולי הליכה נגישים ובקרת אתר.">
           <span class="project-tag">תשתיות</span><h3>מתחם תחבורה ציבורית</h3>
@@ -142,6 +192,111 @@
     </div>
   </section>
 
+  <!-- ===== Map ===== -->
+  <section class="section section-navy" id="map">
+    <div class="container map-grid">
+      <div class="map-text">
+        <h2>פריסה ארצית</h2>
+        <span class="rule"></span>
+      </div>
+      <div class="map-wrap">
+        <div class="map-stage">
+          <div class="map-layer">
+          <svg class="map-art" viewBox="0 0 290 504" role="img" aria-label="מפת ארץ ישראל עם סימון הערים והיישובים שבהם יש פרויקטים">
+            <path d="M158.9,85.3 L157.8,92.9 L155.8,99.7 L152.9,105.5 L149.2,110.5 L144.6,114.5 L141.0,119.0 L138.3,124.0 L136.6,129.4 L135.8,135.2 L134.7,142.2 L133.4,150.3 L131.8,159.5 L129.9,169.9 L128.0,179.2 L126.3,187.5 L124.7,194.9 L123.2,201.2 L121.5,207.7 L119.8,214.4 L118.0,221.4 L116.1,228.6 L114.4,235.1 L112.8,241.0 L111.5,246.1 L110.4,250.6 L108.3,257.1 L105.5,265.4 L101.7,275.6 L97.2,287.8 L92.9,298.5 L88.8,307.7 L85.1,315.4 L81.7,321.7 L79.3,327.6 L77.9,333.0 L77.6,338.0 L78.4,342.5 L77.4,347.9 L74.5,354.2 L69.8,361.4 L63.3,369.5 L57.2,377.3 L51.4,385.0 L46.1,392.4 L41.1,399.6 L38.9,408.9 L39.5,420.4 L42.8,434.0 L49.0,449.8 L55.2,466.9 L61.5,485.3 L67.9,505.1 L74.4,526.3 L81.0,547.8 L87.7,569.6 L94.5,591.8 L101.4,614.3 L107.6,635.7 L113.1,656.2 L118.0,675.7 L122.2,694.1 L126.4,707.3 L130.6,715.2 L134.8,717.8 L139.0,715.1 L142.9,708.0 L146.3,696.5 L149.4,680.6 L152.0,660.4 L154.8,640.7 L157.7,621.6 L160.7,603.0 L163.7,585.0 L167.9,566.4 L173.3,547.3 L179.8,527.6 L187.4,507.4 L194.3,488.8 L200.4,471.9 L205.8,456.7 L210.4,443.3 L214.6,429.8 L218.4,416.3 L221.9,402.8 L224.9,389.3 L227.0,375.8 L228.2,362.3 L228.4,348.8 L227.6,335.2 L227.2,320.1 L227.2,303.2 L227.6,284.6 L228.4,264.4 L228.9,245.2 L229.3,227.2 L229.5,210.4 L229.5,194.6 L229.8,180.6 L230.4,168.2 L231.2,157.5 L232.4,148.5 L234.6,141.2 L237.8,135.6 L242.1,131.6 L247.5,129.4 L252.7,126.0 L257.9,121.5 L263.0,115.9 L267.9,109.1 L271.7,101.8 L274.2,93.9 L275.4,85.5 L275.4,76.5 L274.7,68.1 L273.4,60.2 L271.4,52.9 L268.7,46.1 L264.7,41.5 L259.3,39.0 L252.6,38.7 L244.6,40.5 L237.4,43.8 L231.1,48.5 L225.7,54.7 L221.1,62.3 L216.2,68.3 L211.0,72.6 L205.6,75.1 L199.9,76.0 L193.6,76.5 L186.9,76.5 L179.8,76.0 L172.1,75.1 L166.1,76.4 L161.7,79.8 Z"/>
+          </svg>
+          <button class="city" data-city="אופקים" style="left:30.07%;top:78.07%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="אור יהודה" style="left:42.47%;top:52.54%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="אורנית" style="left:50.49%;top:49.39%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="אלון שבות" style="left:56.87%;top:65.79%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="אלעד" style="left:47.54%;top:51.71%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="אפרת" style="left:58.19%;top:65.96%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="אריאל" style="left:59.14%;top:49.79%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="אשדוד" style="left:31.92%;top:60.57%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="אשקלון" style="left:27.49%;top:65.39%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="באר יעקב" style="left:41.47%;top:55.54%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="באר שבע" style="left:39.09%;top:80.29%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="בית מאיר" style="left:53.13%;top:60.71%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="בית עומר" style="left:55.92%;top:67.86%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="בית שמש" style="left:49.54%;top:62.61%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="ביתר עילית" style="left:56.40%;top:64.50%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="בני ברק" style="left:41.36%;top:50.57%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="בני עייש" style="left:37.04%;top:60.00%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="ברוכין" style="left:55.13%;top:50.14%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="גבעת זאב" style="left:59.09%;top:58.61%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="גבעתיים" style="left:40.20%;top:51.07%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="גוש עציון" style="left:56.35%;top:66.43%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="גני אז&quot;ר" style="left:39.99%;top:52.79%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="גת רימון" style="left:46.69%;top:50.61%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="הר טוב" style="left:49.59%;top:63.68%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="הרצליה" style="left:41.89%;top:47.64%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="חוף הבונים" style="left:45.90%;top:31.25%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="חיננית" style="left:59.88%;top:37.14%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="חיפה" style="left:49.59%;top:25.21%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="חריש" style="left:52.49%;top:37.04%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="טבריה" style="left:78.14%;top:25.18%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="יבנה" style="left:36.35%;top:57.96%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="יהוד" style="left:44.26%;top:52.39%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="יצהר" style="left:61.04%;top:47.96%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="ירושלים" style="left:61.41%;top:61.86%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="כוכב השחר" style="left:70.75%;top:54.68%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="כפר חב&quot;ד" style="left:42.47%;top:53.71%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="כפר סבא" style="left:45.21%;top:47.21%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="כפר עציון" style="left:56.03%;top:66.14%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="כרמית" style="left:44.84%;top:77.34%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="לוד" style="left:44.21%;top:55.32%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="מבוא חורון" style="left:52.18%;top:58.82%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="מבשרת ציון" style="left:58.03%;top:60.71%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="מודיעין" style="left:50.65%;top:57.50%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="מודיעין עילית" style="left:52.23%;top:56.07%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="מוצא" style="left:58.67%;top:61.07%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="מישור אדומים" style="left:68.59%;top:61.43%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="מעלה אדומים" style="left:65.84%;top:61.54%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="מצפה יריחו" style="left:71.22%;top:59.29%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="משמר איילון" style="left:49.22%;top:59.54%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="נאות קדומים" style="left:50.38%;top:56.96%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="נהריה" style="left:55.13%;top:17.68%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="נוקדים" style="left:62.52%;top:65.54%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="נס ציונה" style="left:39.52%;top:56.07%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="נריה" style="left:56.08%;top:55.18%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="נתיבות" style="left:28.44%;top:74.39%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="נתניה" style="left:42.58%;top:41.71%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="ניל&quot;י" style="left:53.81%;top:55.36%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="עטרות" style="left:61.57%;top:58.32%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="עמנואל" style="left:57.14%;top:47.57%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="עפולה" style="left:65.37%;top:31.86%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="עפרה" style="left:64.00%;top:55.25%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="ערד" style="left:61.36%;top:80.07%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="פתח תקוה" style="left:44.16%;top:50.46%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="צור הדסה" style="left:54.08%;top:63.75%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="צפת" style="left:76.29%;top:19.14%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="קידר" style="left:66.48%;top:63.68%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="קרית אונו" style="left:42.47%;top:51.32%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="קרית גת" style="left:37.67%;top:67.50%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="קרית יערים" style="left:56.24%;top:60.50%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="קרית ים" style="left:53.81%;top:23.21%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="ראש העין" style="left:47.85%;top:50.18%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="ראשון לציון" style="left:38.99%;top:54.54%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="רחובות" style="left:40.15%;top:57.36%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="רימונים" style="left:65.95%;top:55.18%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="רמת גן" style="left:40.84%;top:51.14%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="רמת טראמפ" style="left:91.27%;top:16.07%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="רמת מוצא" style="left:59.20%;top:60.89%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="רעים" style="left:21.95%;top:75.54%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="שדה דב" style="left:38.62%;top:49.50%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="שער בנימין" style="left:64.10%;top:57.50%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="שעל" style="left:89.16%;top:12.86%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="שקד" style="left:59.35%;top:39.46%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="תל אביב" style="left:38.57%;top:50.54%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="תרום" style="left:51.18%;top:61.82%" tabindex="-1" aria-hidden="true"></button>
+          <button class="city" data-city="רכסים" style="left:55.40%;top:26.61%" tabindex="-1" aria-hidden="true"></button>
+          </div>
+          <div class="map-card" role="region" aria-live="polite" hidden></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Contact ===== -->
   <section class="section section-light" id="contact">
     <div class="container contact-grid">
@@ -152,7 +307,7 @@
           <li><strong>טלפון</strong><a href="tel:028020108">02-8020-108</a></li>
           <li><strong>דוא"ל</strong><a href="mailto:office@eknopf.co.il">office@eknopf.co.il</a></li>
           <li><strong>שעות מענה</strong>8:30-15:30</li>
-          <li><strong>כתובת</strong>[כתובת המשרד, להשלמה]</li>
+          <li><strong>כתובת</strong>רפאל ברוך טולדנו 24, ירושלים</li>
         </ul>
       </div>
 
@@ -192,7 +347,10 @@
     <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14"/><circle cx="16" cy="8.5" r="2" class="f"/><path d="M8 12.5l8 1.8 8-1.8M16 14.3V20M16 20l-3.5 6M16 20l3.5 6"/></svg>
   </button>
   <div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="כלי נגישות" hidden>
-    <p class="a11y-title">כלי נגישות</p>
+    <div class="a11y-head">
+      <p class="a11y-title">כלי נגישות</p>
+      <button type="button" class="a11y-close" aria-label="סגירת כלי נגישות">&times;</button>
+    </div>
     <button data-a11y="size-up">הגדלת טקסט</button>
     <button data-a11y="size-down">הקטנת טקסט</button>
     <button data-a11y="contrast" aria-pressed="false">ניגודיות גבוהה</button>
@@ -201,6 +359,7 @@
     <button data-a11y="font" aria-pressed="false">גופן קריא</button>
     <button data-a11y="motion" aria-pressed="false">עצירת אנימציות</button>
     <button data-a11y="reset" class="a11y-reset">איפוס הגדרות</button>
+    <a href="accessibility.html" class="a11y-link">הצהרת נגישות</a>
   </div>
 </div>
 
@@ -223,10 +382,11 @@
       <li><a href="#services">שירותים</a></li>
       <li><a href="#projects">פרויקטים</a></li>
       <li><a href="#contact">יצירת קשר</a></li>
+      <li><a href="accessibility.html">הצהרת נגישות</a></li>
     </ul>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=17"></script>
 </body>
 </html>
