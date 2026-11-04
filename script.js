@@ -3,7 +3,7 @@
   'use strict';
 
   /* >>> הגדרה: כתובת שירות קבלת הטפסים (ראו מדריך). השאירו ריק למצב הדגמה <<< */
-  const FORM_ENDPOINT = 'https://formspree.io/f/maeqzkep'; 
+  const FORM_ENDPOINT = 'https://formspree.io/f/maeqzkep';
 
   /* ---------- תפריט מובייל ---------- */
   const toggle = document.querySelector('.menu-toggle');
@@ -154,10 +154,18 @@
     try { localStorage.setItem('a11y', JSON.stringify(a11y)); } catch (e) { /* ללא שמירה */ }
   };
 
+  const closeA11y = () => {
+    a11yPanel.hidden = true;
+    a11yBtn.setAttribute('aria-expanded', 'false');
+  };
   a11yBtn.addEventListener('click', () => {
     const open = a11yPanel.hidden;
     a11yPanel.hidden = !open;
     a11yBtn.setAttribute('aria-expanded', String(open));
+  });
+  a11yPanel.querySelector('.a11y-close').addEventListener('click', () => {
+    closeA11y();
+    a11yBtn.focus();
   });
   a11yPanel.addEventListener('click', (e) => {
     const k = e.target.closest('[data-a11y]')?.dataset.a11y;
@@ -169,6 +177,226 @@
     applyA11y();
   });
   applyA11y();
+
+  /* ---------- הלוגו כמטבע דו-צדדי: סיבוב מלא במעבר עכבר על הלוגו או על הכותרת ---------- */
+  const coin = document.querySelector('.hero-logo .coin');
+  const emblem = document.querySelector('.hero-logo .emblem');
+  const heroTitle = document.querySelector('.hero-inner h1');
+  if (coin && coin.animate) {
+    let spinning = false;
+    const spin = () => {
+      const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        || root.classList.contains('a11y-nomotion');
+      if (spinning || calm) return;
+      spinning = true;
+      const a = coin.animate(
+        [{ transform: 'perspective(1100px) rotateY(0deg)' }, { transform: 'perspective(1100px) rotateY(360deg)' }],
+        { duration: 2750, easing: 'cubic-bezier(.45, .1, .2, 1)' }
+      );
+      a.onfinish = () => { spinning = false; };
+    };
+    [emblem, heroTitle].forEach((el) => el && el.addEventListener('pointerenter', spin));
+  }
+
+  /* ---------- מפת פריסה ארצית ---------- */
+  const mapCard = document.querySelector('.map-card');
+  const mapStage = document.querySelector('.map-stage');
+  const cityDots = [...document.querySelectorAll('.city')];
+  let hideTimer;
+
+  // קו המתאר של המפה, ביחידות ה-viewBox, כדי למדוד מרחק אמיתי מהגבול
+  const mapOutline = (document.querySelector('.map-art path')?.getAttribute('d')?.match(/[\d.]+/g) || [])
+    .reduce((acc, n, i, arr) => {
+      if (i % 2 === 0) acc.push({ x: +n, y: +arr[i + 1] });
+      return acc;
+    }, []);
+  const pointInMap = (x, y) => {
+    let inside = false;
+    for (let i = 0, j = mapOutline.length - 1; i < mapOutline.length; j = i++) {
+      const a = mapOutline[i];
+      const b = mapOutline[j];
+      if ((a.y > y) !== (b.y > y) && x < ((b.x - a.x) * (y - a.y)) / (b.y - a.y) + a.x) inside = !inside;
+    }
+    return inside;
+  };
+  const nearestEdge = (px, py) => {
+    let best = null;
+    for (let i = 0; i < mapOutline.length; i++) {
+      const a = mapOutline[i];
+      const b = mapOutline[(i + 1) % mapOutline.length];
+      const dx = b.x - a.x;
+      const dy = b.y - a.y;
+      const len2 = dx * dx + dy * dy || 1e-9;
+      const t = Math.max(0, Math.min(1, ((px - a.x) * dx + (py - a.y) * dy) / len2));
+      const x = a.x + t * dx;
+      const y = a.y + t * dy;
+      const d = Math.hypot(px - x, py - y);
+      if (!best || d < best.d) best = { d, x, y, ax: a.x, ay: a.y, bx: b.x, by: b.y };
+    }
+    return best;
+  };
+  // דוחף נקודה שנמצאת על הגבול או מחוצה לו פנימה, רק עד שיש רווח ברור מהקו
+  const parkInside = (px, py, stageW, stageH) => {
+    if (mapOutline.length < 3) return { x: px, y: py };
+    const toSvgX = 290 / stageW;
+    const toSvgY = 504 / stageH;
+    const halfStroke = 0.8 * stageW / 290;
+    const margin = (4 + 1.5 + 5 + halfStroke) * toSvgX;
+    let x = px * toSvgX;
+    let y = py * toSvgY;
+    for (let k = 0; k < 5; k++) {
+      const hit = nearestEdge(x, y);
+      if (!hit) break;
+      const signed = pointInMap(x, y) ? hit.d : -hit.d;
+      if (signed >= margin) break;
+      const ex = hit.bx - hit.ax;
+      const ey = hit.by - hit.ay;
+      const len = Math.hypot(ex, ey) || 1;
+      let nx = -ey / len;
+      let ny = ex / len;
+      if (!pointInMap(hit.x + nx * 2, hit.y + ny * 2)) { nx = -nx; ny = -ny; }
+      const step = margin - signed + 0.2;
+      x += nx * step;
+      y += ny * step;
+    }
+    return { x: x / toSvgX, y: y / toSvgY };
+  };
+
+  // נקודות צפופות נדחפות מעט זו מזו, כדי שכל יישוב יהיה ניתן לבחירה. המיקום הגאוגרפי נשאר העוגן.
+  const spreadCities = () => {
+    const stageW = mapStage.offsetWidth;
+    const stageH = mapStage.offsetHeight;
+    if (!stageW || !stageH) return;
+    const expanded = mapStage.matches(':hover') || mapStage.matches(':focus-within');
+    const spreadMul = expanded ? 1.55 : 1;
+    const minDist = 13 * spreadMul;
+    const maxShift = 16 * spreadMul;
+    const pts = cityDots.map((dot) => {
+      const leftPct = parseFloat(dot.style.left);
+      const topPct = parseFloat(dot.style.top);
+      const geoX = leftPct / 100 * stageW;
+      const geoY = topPct / 100 * stageH;
+      const parked = parkInside(geoX, geoY, stageW, stageH);
+      return { dot, x: parked.x, y: parked.y, ox: parked.x, oy: parked.y, geoX, geoY, leftPct };
+    });
+    const clampToAnchor = (p) => {
+      const westLimit = p.leftPct < 46 ? 0 : 4;
+      p.x = Math.max(p.ox - westLimit, Math.min(p.ox + maxShift, p.x));
+      p.y = Math.max(p.oy - maxShift, Math.min(p.oy + maxShift, p.y));
+    };
+    for (let n = 0; n < 28; n++) {
+      let moved = false;
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = pts[j].x - pts[i].x;
+          const dy = pts[j].y - pts[i].y;
+          const dist = Math.hypot(dx, dy) || 0.01;
+          if (dist >= minDist) continue;
+          const push = (minDist - dist) / 2;
+          let ux = dx / dist;
+          let uy = dy / dist;
+          if (pts[i].leftPct < 46 && ux > 0) ux = 0;
+          if (pts[j].leftPct < 46 && ux < 0) ux = 0;
+          const len = Math.hypot(ux, uy) || 1;
+          ux /= len;
+          uy /= len;
+          pts[i].x -= ux * push;
+          pts[i].y -= uy * push;
+          pts[j].x += ux * push;
+          pts[j].y += uy * push;
+          clampToAnchor(pts[i]);
+          clampToAnchor(pts[j]);
+          moved = true;
+        }
+      }
+      if (!moved) break;
+    }
+    pts.forEach((p) => {
+      clampToAnchor(p);
+      let dx = p.x - p.ox;
+      let dy = p.y - p.oy;
+      const dist = Math.hypot(dx, dy);
+      if (dist > maxShift) {
+        dx = dx / dist * maxShift;
+        dy = dy / dist * maxShift;
+      }
+      const parked = parkInside(p.ox + dx, p.oy + dy, stageW, stageH);
+      p.dot.style.setProperty('--dx', (parked.x - p.geoX).toFixed(1) + 'px');
+      p.dot.style.setProperty('--dy', (parked.y - p.geoY).toFixed(1) + 'px');
+    });
+  };
+  spreadCities();
+  if (window.ResizeObserver) new ResizeObserver(spreadCities).observe(mapStage);
+  mapStage.addEventListener('pointerenter', spreadCities);
+  mapStage.addEventListener('pointerleave', spreadCities);
+
+  const hideCityNow = () => {
+    mapCard.hidden = true;
+    cityDots.forEach((p) => p.classList.remove('active'));
+  };
+  const placeCard = (dot) => {
+    const stageBox = mapStage.getBoundingClientRect();
+    const scale = stageBox.width / mapStage.offsetWidth || 1;
+    const dotBox = dot.getBoundingClientRect();
+    const cx = (dotBox.left + dotBox.width / 2 - stageBox.left) / scale;
+    const cy = (dotBox.top + dotBox.height / 2 - stageBox.top) / scale;
+    const cardW = mapCard.offsetWidth;
+    const cardH = mapCard.offsetHeight;
+    let left = cx + 14;
+    if (left + cardW > mapStage.offsetWidth - 6) left = cx - cardW - 14;
+    left = Math.max(6, Math.min(left, mapStage.offsetWidth - cardW - 6));
+    let top = cy - cardH / 2;
+    top = Math.max(6, Math.min(top, mapStage.offsetHeight - cardH - 6));
+    mapCard.style.left = left + 'px';
+    mapCard.style.top = top + 'px';
+  };
+  const showCity = (dot) => {
+    clearTimeout(hideTimer);
+    cityDots.forEach((p) => p.classList.toggle('active', p === dot));
+    mapCard.replaceChildren();
+    const h = document.createElement('h3');
+    h.textContent = dot.dataset.city;
+    mapCard.appendChild(h);
+    mapCard.hidden = false;
+    placeCard(dot);
+  };
+  const hideCity = () => {
+    hideTimer = setTimeout(hideCityNow, 150);
+  };
+  cityDots.forEach((p) => {
+    p.addEventListener('pointerenter', (e) => { if (e.pointerType !== 'touch') showCity(p); });
+    p.addEventListener('pointerleave', (e) => { if (e.pointerType !== 'touch') hideCity(); });
+    p.addEventListener('click', (e) => { e.stopPropagation(); showCity(p); });
+  });
+  document.addEventListener('click', (e) => {
+    if (!mapStage.contains(e.target)) hideCityNow();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideCityNow(); });
+
+  /* ---------- מספרים שעולים כשמגיעים לאזור האודות ---------- */
+  const counters = [...document.querySelectorAll('[data-count]')];
+  const statsList = document.querySelector('.stats');
+  if (counters.length && statsList) {
+    const calmUser = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      || root.classList.contains('a11y-nomotion');
+    if (!calmUser()) counters.forEach((el) => { el.textContent = '0' + (el.dataset.suffix || ''); });
+
+    const countUp = (el) => {
+      const target = Number(el.dataset.count), suffix = el.dataset.suffix || '';
+      if (calmUser()) { el.textContent = target + suffix; return; }
+      const start = performance.now(), duration = 2200;
+      const tick = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix; // האטה בסוף
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const io = new IntersectionObserver((entries, obs) => {
+      if (entries.some((en) => en.isIntersecting)) { counters.forEach(countUp); obs.disconnect(); }
+    }, { threshold: 0.5 });
+    io.observe(statsList);
+  }
 
   /* ---------- שנה בפוטר ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
